@@ -6,18 +6,14 @@ def dijkstra_algorithm(graph, start_vertex_id):
     distances = {vertex_id: sys.maxsize for vertex_id in graph.connections}
     distances[start_vertex_id] = 0
 
-
-
     if start_vertex_id not in graph.connections:
-        raise ValueError('Not found start_vertex_id in graph vertexes')
+        raise ValueError('start_vertex_id not found :(')
 
     available_vertexes_queue = PriorityQueue()
     available_vertexes_queue.put((0, start_vertex_id))
 
     while not available_vertexes_queue.empty():
         parent_vertex = available_vertexes_queue.get()[1]
-
-
 
         for child_vertex_tuple in graph.connections[parent_vertex]:
             distance = distances[parent_vertex] + child_vertex_tuple[1]
@@ -27,5 +23,4 @@ def dijkstra_algorithm(graph, start_vertex_id):
                 distances[child_vertex_id] = distance
                 available_vertexes_queue.put((distance, child_vertex_id))
 
-    print(distances)
     return distances

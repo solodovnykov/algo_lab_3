@@ -1,5 +1,6 @@
 from .Graph import Graph
 
+
 def read_data(filename: str):
     graph = Graph()
     with open(filename, 'r') as file:
@@ -13,6 +14,7 @@ def read_data(filename: str):
             graph.create_edges_from_vertexes(first, last, weight)
 
     return n, m, users, graph
+
 
 def write_data(filename, data):
     data = str(data)

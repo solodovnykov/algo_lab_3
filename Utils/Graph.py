@@ -14,8 +14,7 @@ class Graph:
 
         self.create_edge(second_vertex_id, first_vertex_id, weight)
 
-
-    def create_edge(self, vertex_from: int, vertex_to: int, edge_weight: int):
+    def create_edge(self, vertex_from, vertex_to, edge_weight):
         if vertex_from in self.connections.keys():
             if (vertex_to, edge_weight) not in self.connections[vertex_from]:
                 self.connections[vertex_from].append((vertex_to, edge_weight))
